@@ -32,10 +32,10 @@ export default {
 					headers: request.headers,
 					body: request.body,
 				});
+			default:
+				return new Response(null, {
+					status: 405,
+				});
 		}
-
-		return new Response(null, {
-			status: 400,
-		});
 	},
 } satisfies ExportedHandler<Env>;
