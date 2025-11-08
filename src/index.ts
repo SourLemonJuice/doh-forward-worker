@@ -1,4 +1,6 @@
-const DEST_DOH_ENDPOINT = "https://cloudflare-dns.com/dns-query";
+export interface Env {
+	DEST_DOH_ENDPOINT: string;
+}
 
 /*
 	RFC 8484: DNS Queries over HTTPS (DoH)
@@ -7,7 +9,7 @@ const DEST_DOH_ENDPOINT = "https://cloudflare-dns.com/dns-query";
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const origUrl = new URL(request.url);
-		let destUrl = new URL(DEST_DOH_ENDPOINT);
+		let destUrl = new URL(env.DEST_DOH_ENDPOINT);
 
 		if (origUrl.pathname !== "/dns-query") {
 			return new Response(null, {

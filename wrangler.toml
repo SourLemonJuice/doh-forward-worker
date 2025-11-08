@@ -1,0 +1,9 @@
+name = "doh-forward-worker"
+main = "src/index.ts"
+compatibility_date = "2025-11-07"
+
+[vars]
+DEST_DOH_ENDPOINT = "https://cloudflare-dns.com/dns-query"
+
+[observability]
+enabled = true
