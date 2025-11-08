@@ -8,8 +8,16 @@ export interface Env {
 */
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		const origUrl = new URL(request.url);
-		let destUrl = new URL(env.DEST_DOH_ENDPOINT);
+		let origUrl: URL;
+		let destUrl: URL;
+		try {
+			origUrl = new URL(request.url);
+			destUrl = new URL(env.DEST_DOH_ENDPOINT);
+		} catch {
+			return new Response(null, {
+				status: 400,
+			});
+		}
 
 		if (origUrl.pathname !== "/dns-query") {
 			return new Response(null, {
