@@ -1,5 +1,5 @@
 export interface Env {
-	DEST_DOH_ENDPOINT: string;
+	UPSTREAM_ENDPOINT: string;
 }
 
 /*
@@ -12,7 +12,7 @@ export default {
 		let destUrl: URL;
 		try {
 			origUrl = new URL(request.url);
-			destUrl = new URL(env.DEST_DOH_ENDPOINT);
+			destUrl = new URL(env.UPSTREAM_ENDPOINT);
 		} catch {
 			return new Response(null, {
 				status: 400,
