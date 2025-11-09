@@ -1,6 +1,7 @@
 name = "doh-forward-worker"
 main = "src/index.ts"
 compatibility_date = "2025-11-07"
+workers_dev = false
 
 [vars]
 UPSTREAM_ENDPOINT = "https://cloudflare-dns.com/dns-query"
