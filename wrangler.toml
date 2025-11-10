@@ -7,4 +7,4 @@ workers_dev = false
 UPSTREAM_ENDPOINT = "https://cloudflare-dns.com/dns-query"
 
 [observability]
-enabled = true
+enabled = false
