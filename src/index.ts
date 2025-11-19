@@ -19,10 +19,17 @@ export default {
 			});
 		}
 
-		if (origUrl.pathname !== "/dns-query") {
-			return new Response(null, {
-				status: 404,
-			});
+		switch (origUrl.pathname) {
+			case "/dns-query":
+				break;
+			case "/generate_204":
+				return new Response(null, {
+					status: 204,
+				});
+			default:
+				return new Response(null, {
+					status: 404,
+				});
 		}
 
 		// 4.1. The HTTP Request
